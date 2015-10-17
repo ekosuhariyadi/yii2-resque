@@ -87,6 +87,8 @@ return [
 Each job should be in it's own class, and implement interface codeimpact\yii2resque\BaseJob
 and at least override `perform` method.
 ```php
+namespace common\jobs;
+
 class EchoJob implements \codeimpact\yii2resque\BaseJob
 {
 
@@ -121,12 +123,16 @@ called after the job finishes. If an exception is thrown int the `setUp` method 
 method will not be run. This is useful for cases where you have different jobs that require
 the same bootstrap, for instance a database connection.
 
+To enable autoload job classes, you have to create all job class in either
+    common/jobs or {backend,frontend}/jobs directory
+and passing the fullname of job class to the queue
+
 ### Queueing Jobs ###
 
 To add a new job to the queue use the `runJob` method.
 
 ```php
-$job = Yii::$app->resque->runJob('EchoJob', array('arg1', 'arg2'));
+$job = Yii::$app->resque->runJob('common\jobs\EchoJob', array('arg1', 'arg2'));
 ```
 
 The first argument is the fully resolved classname for your job class (if you're wondering how
@@ -147,7 +153,7 @@ It is possible to run a job onto another queue (default queue is called `default
 through a third parameter to the `runJob` method which contains the queue name.
 
 ```php
-$job = Yii::$app->resque->runJob('EchoJob', array(), 'myqueue');
+$job = Yii::$app->resque->runJob('common\jobs\EchoJob', array(), 'myqueue');
 ```
 
 
@@ -157,10 +163,10 @@ It is possible to schedule a job to run at a specified time in the future using 
 method. You can do this by either passing through an `int` or a `DateTime` object.
 
 ```php
-$job = Yii::$app->resque->enqueueJob(60, 'EchoJob', array());
-$job = Yii::$app->resque->enqueueJob(1398643990, 'EchoJob', array());
-$job = Yii::$app->resque->enqueueJob(new \DateTime('+2 mins'), 'EchoJob', array());
-$job = Yii::$app->resque->enqueueJob(new \DateTime('2014-07-08 11:14:15'), 'EchoJob', array());
+$job = Yii::$app->resque->enqueueJob(60, 'common\jobs\EchoJob', array());
+$job = Yii::$app->resque->enqueueJob(1398643990, 'common\jobs\EchoJob', array());
+$job = Yii::$app->resque->enqueueJob(new \DateTime('+2 mins'), 'common\jobs\EchoJob', array());
+$job = Yii::$app->resque->enqueueJob(new \DateTime('2014-07-08 11:14:15'), 'common\jobs\EchoJob', array());
 ```
 
 If you pass through an integer and it is smaller than `94608000` seconds (3 years) php-resque will
@@ -174,7 +180,7 @@ php-resque tracks the status of a job. The status information will allow you to 
 To track the status of a job you must capture the job id of a ran job.
 
 ```php
-$job = Yii::$app->resque->runJob('EchoJob');
+$job = Yii::$app->resque->runJob('common\jobs\EchoJob');
 $jobId = $job->getId();
 ```
 
