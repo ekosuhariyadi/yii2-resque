@@ -19,7 +19,7 @@
   ],
   "autoload": {
     "psr-4": {
-      "codeimpact\\yii2resque": ""
+      "codeimpact\\yii2resque\\": ""
     }
   }
 }
