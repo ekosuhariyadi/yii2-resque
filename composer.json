@@ -1,0 +1,25 @@
+{
+  "name": "codeimpact/yii2-resque",
+  "description": "description_text",
+  "license": "false",
+  "type": "yii2-extension",
+  "authors": [
+    {
+      "name": "Eko Suhariyadi",
+      "email": "eko.suhariyadi@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.4.0",
+    "yiisoft/yii2": "2.0.x",
+    "mjphaynes/php-resque": "1.2.x"
+  },
+  "bin": [
+    "bin/yii2resque"
+  ],
+  "autoload": {
+    "psr-4": {
+      "codeimpact\\yii2resque": ""
+    }
+  }
+}
