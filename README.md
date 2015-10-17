@@ -42,11 +42,11 @@ You must have the following installed in order to run:
 
     ```
     "repositories":[
-            {
-                "type": "git",
-                "url": "https://github.com:ekosuhariyadi/yii2-resque.git"
-            }
-        ],
+        {
+            "type": "git",
+            "url": "https://github.com/ekosuhariyadi/yii2-resque.git"
+        }
+    ]
     ```
 
     Then
