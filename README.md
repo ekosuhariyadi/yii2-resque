@@ -19,7 +19,7 @@ php-resque is a Redis-backed PHP library for creating background jobs, placing t
 
 ## Background ##
 
-Inspired by sprytechies's [yii2-resque](https://github.com/sprytechies/yii2-resque) but we are using mjphaynes's [php-resque](https://github.com/sprytechies/yii2-resque)
+Inspired by sprytechies's [yii2-resque](https://github.com/sprytechies/yii2-resque) but we are using mjphaynes's [php-resque](https://github.com/mjphaynes/php-resque)
 instead of chrisboulton's [php-resque](https://github.com/chrisboulton/php-resque).
 
 The reason behind using mjphaynes/php-resque can be found at [here](https://github.com/mjphaynes/php-resque/blob/master/README.md#background)
@@ -65,7 +65,7 @@ You must have the following installed in order to run:
 
     to the require section of your `composer.json` file.
 
-2. Copy `vendor/codeimpact/yii2-resque/config.yml` to folder where your project's composer.json exists.
+2. Copy `vendor/codeimpact/yii2-resque/config.yml` to `folder` where your project's `composer.json` exists (project's root).
 
 3. And last add the following code to `common/config/main-local.php`
 
