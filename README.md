@@ -14,6 +14,7 @@ php-resque is a Redis-backed PHP library for creating background jobs, placing t
     * [Queueing Jobs](#queueing-jobs)
     * [Delaying Jobs](#delaying-jobs)
     * [Job Statuses](#job-statuses)
+
 ---
 
 ## Background ##
@@ -64,9 +65,9 @@ You must have the following installed in order to run:
 
     to the require section of your `composer.json` file.
 
-2. Copy vendor/codeimpact/yii2-resque/config.yml to folder where your project's composer.json exists.
+2. Copy `vendor/codeimpact/yii2-resque/config.yml` to folder where your project's composer.json exists.
 
-3. And last add the following code to common/config/main-local.php
+3. And last add the following code to `common/config/main-local.php`
 
 ```php
 return [
@@ -84,7 +85,7 @@ return [
 
 ### Defining Jobs ###
 
-Each job should be in it's own class, and implement interface codeimpact\yii2resque\BaseJob
+Each job should be in it's own class, and implement interface `codeimpact\yii2resque\BaseJob`
 and at least override `perform` method.
 ```php
 namespace common\jobs;
@@ -135,8 +136,7 @@ To add a new job to the queue use the `runJob` method.
 $job = Yii::$app->resque->runJob('common\jobs\EchoJob', array('arg1', 'arg2'));
 ```
 
-The first argument is the fully resolved classname for your job class (if you're wondering how
-php-resque knows about your job classes see [autoloading job classes](#autoload-job-classes)).
+The first argument is the fully resolved classname for your job class.
 The second argument is an array of any arguments you want to pass through to the job class.
 
 It is also possible to run a Closure onto the queue. This is very convenient for quick,
