@@ -22,27 +22,10 @@ define('RESQUE_DIR', realpath(RESQUE_BIN_DIR.'/../'));
 
 require(RESQUE_DIR.'/../../../vendor/autoload.php');
 require(RESQUE_DIR.'/../../../vendor/yiisoft/yii2/Yii.php');
-require(RESQUE_DIR.'/../../../common/config/bootstrap.php');
-require(RESQUE_DIR.'/../../../console/config/bootstrap.php');
+require(RESQUE_DIR.'/../../../config/bootstrap.php');
 
-$config = yii\helpers\ArrayHelper::merge(
-    require(RESQUE_DIR.'/../../../common/config/main.php'),
-    require(RESQUE_DIR.'/../../../common/config/main-local.php'),
-    require(RESQUE_DIR.'/../../../console/config/main.php'),
-    require(RESQUE_DIR.'/../../../console/config/main-local.php')
-);
+$config = require(RESQUE_DIR.'/../../../config/console.php');
 
-/**
-if (file_exists($file = RESQUE_DIR.'/../../../vendor/autoload.php')) {
-	require_once $file;
-
-} else {
-	echo '<pre>You need to set up the project dependencies using the following commands:'.PHP_EOL.
-		"\t".'$ curl -s http://getcomposer.org/installer | php'.PHP_EOL.
-		"\t".'$ php composer.phar install</pre>'.PHP_EOL;
-	exit(1);
-}
-*/
 
 $yiiApplication = new yii\console\Application($config);
 $application = new Symfony\Component\Console\Application('php-resque', Resque::VERSION);
