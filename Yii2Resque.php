@@ -5,7 +5,7 @@
  * Time: 4:47 PM
  */
 
-namespace codeimpact\yii2resque;
+namespace lerence\yii2resque;
 
 use Resque\Job;
 use yii\base\Component;
