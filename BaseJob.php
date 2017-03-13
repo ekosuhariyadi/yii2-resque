@@ -6,7 +6,7 @@
  * Time: 5:22 PM
  */
 
-namespace codeimpact\yii2resque;
+namespace lerence\yii2resque;
 
 
 interface BaseJob
