@@ -1,6 +1,6 @@
 <?php
 
-class EchoJob implements \codeimpact\yii2resque\BaseJob
+class EchoJob implements \lerence\yii2resque\BaseJob
 {
 
     public function setUp()

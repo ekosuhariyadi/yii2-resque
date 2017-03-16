@@ -5,13 +5,20 @@
  * Time: 4:47 PM
  */
 
-namespace codeimpact\yii2resque;
+namespace lerence\yii2resque;
 
 use Resque\Job;
 use yii\base\Component;
 
 class Yii2Resque extends Component
 {
+	public $configFile;
+    
+    public function init() {
+        if($this->configFile !== null) {
+            \Resque::loadConfig($this->configFile);
+        }
+    }
 
     public function runJob($job, array $data = null, $queue = null)
     {
