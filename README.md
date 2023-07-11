@@ -1,5 +1,5 @@
 # yii2-resque
-[DEPRECATE] This project is no longer being maintained
+[DEPRECATED] This project is no longer being maintained
 yii2-resque is yii2 component that wraps the process of mjphaynes's [php-resque](https://github.com/mjphaynes/php-resque).
 php-resque is a Redis-backed PHP library for creating background jobs, placing them on multiple queues, and processing them later.
 
